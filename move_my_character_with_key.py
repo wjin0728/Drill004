@@ -73,7 +73,17 @@ while (running):
                 dirY=0
             elif event.key == SDLK_DOWN:
                 dirY=-0
-    x+=dirX*10
-    y+=dirY*10
+    if x+dirX*10 > TUK_WIDTH:
+        x = TUK_WIDTH
+    elif x+dirX*10 < 0:
+        x = 0
+    else:
+        x+=dirX*10
+    if y + dirY * 10 > TUK_HEIGHT:
+        y = TUK_HEIGHT
+    elif y + dirY * 10 < 0:
+        y = 0
+    else:
+        y += dirY * 10
 
 close_canvas()
